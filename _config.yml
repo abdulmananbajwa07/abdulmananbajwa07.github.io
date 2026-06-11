@@ -1,0 +1,25 @@
+title: Abdul Manan | Microsoft AI & Copilot Expert
+description: Microsoft AI specialist, 12x certified, aspiring Microsoft MVP. Articles on Copilot, Copilot Studio, Azure AI, and intelligent agents.
+url: "https://abdulmananbajwa07.github.io"
+baseurl: ""
+author: Abdul Manan
+email: abdul.mananbajwa07@gmail.com
+linkedin: https://www.linkedin.com/in/abdulmanan
+
+permalink: /blog/:year/:month/:day/:title/
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
