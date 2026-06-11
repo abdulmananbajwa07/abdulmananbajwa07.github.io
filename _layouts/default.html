@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }} | Abdul Manan</title>
+  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ms-blue:       #0078D4;
+      --ms-blue-dark:  #005A9E;
+      --ms-blue-light: #50A3E0;
+      --ms-purple:     #5C2D91;
+      --accent:        #00B7C3;
+      --bg:            #0A0C10;
+      --bg-card:       #10141C;
+      --bg-card2:      #161B27;
+      --border:        rgba(255,255,255,0.07);
+      --text:          #E8ECF4;
+      --text-muted:    #8A95A8;
+      --text-dim:      #5B6478;
+      --radius:        12px;
+      --radius-lg:     20px;
+      --shadow:        0 4px 32px rgba(0,0,0,0.45);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .tag {
+      display: inline-block;
+      background: rgba(0,120,212,0.12);
+      color: var(--ms-blue-light);
+      border: 1px solid rgba(0,120,212,0.25);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      margin-bottom: 16px;
+    }
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,12,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: #fff; }
+    .nav-logo span span { color: var(--ms-blue); }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--ms-blue) !important; color: #fff !important; padding: 8px 20px !important; border-radius: 8px !important; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--ms-blue-dark) !important; }
+    @media (max-width: 640px) { .nav-links a:not(.nav-cta) { display: none; } }
+    /* Footer */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+    footer a { color: var(--ms-blue-light); }
+    footer a:hover { color: #fff; }
+  </style>
+  {% seo %}
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="2" width="9" height="9" fill="#F25022"/>
+        <rect x="13" y="2" width="9" height="9" fill="#7FBA00"/>
+        <rect x="2" y="13" width="9" height="9" fill="#00A4EF"/>
+        <rect x="13" y="13" width="9" height="9" fill="#FFB900"/>
+      </svg>
+      <span>Abdul <span>Manan</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/#about">About</a>
+      <a href="/#expertise">Expertise</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#speaking">Speaking</a>
+      <a href="/#community">Community</a>
+      <a href="/#contact" class="nav-cta">Get in Touch</a>
+    </div>
+  </div>
+</nav>
+
+{{ content }}
+
+<footer>
+  <div class="container">
+    <p>© 2026 Abdul Manan · Built with ❤️ for the Microsoft community ·
+      <a href="https://mvp.microsoft.com" target="_blank">Microsoft MVP Program</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
