@@ -1,0 +1,133 @@
+---
+layout: default
+---
+<style>
+  .post-hero {
+    background: linear-gradient(135deg, #0d0520 0%, #0a1628 50%, #0A0C10 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 72px 24px 56px;
+  }
+  .post-hero .container { max-width: 800px; }
+  .post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+  .post-cat {
+    background: rgba(0,120,212,0.15);
+    color: var(--ms-blue-light);
+    border: 1px solid rgba(0,120,212,0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .post-date { color: var(--text-dim); font-size: 14px; }
+  .post-hero h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .post-hero .lead { font-size: 18px; color: var(--text-muted); max-width: 640px; }
+  .post-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  .post-body h2 { font-size: 26px; font-weight: 700; color: #fff; margin: 48px 0 16px; letter-spacing: -0.3px; }
+  .post-body h3 { font-size: 20px; font-weight: 700; color: #fff; margin: 36px 0 12px; }
+  .post-body p  { margin-bottom: 20px; color: var(--text); line-height: 1.8; }
+  .post-body ul, .post-body ol { margin: 0 0 20px 24px; color: var(--text); line-height: 1.8; }
+  .post-body li { margin-bottom: 8px; }
+  .post-body strong { color: #fff; font-weight: 600; }
+  .post-body em { color: var(--ms-blue-light); font-style: italic; }
+  .post-body a { color: var(--ms-blue-light); text-decoration: underline; text-underline-offset: 3px; }
+  .post-body a:hover { color: #fff; }
+  .post-body hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+  .post-body blockquote {
+    border-left: 3px solid var(--ms-blue);
+    padding: 16px 20px;
+    margin: 24px 0;
+    background: rgba(0,120,212,0.06);
+    border-radius: 0 8px 8px 0;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .post-body pre {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .post-body code {
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 0.9em;
+  }
+  .post-body p code, .post-body li code {
+    background: rgba(0,120,212,0.1);
+    border: 1px solid rgba(0,120,212,0.2);
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: var(--ms-blue-light);
+  }
+  .post-back {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--ms-blue-light); font-size: 14px; font-weight: 500;
+    margin-bottom: 48px;
+    transition: color 0.2s;
+  }
+  .post-back:hover { color: #fff; }
+  .post-footer-cta {
+    margin-top: 56px;
+    padding: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  .post-footer-cta h3 { font-size: 20px; color: #fff; margin-bottom: 8px; }
+  .post-footer-cta p  { color: var(--text-muted); margin-bottom: 20px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 10px;
+    font-size: 14px; font-weight: 600; transition: all 0.2s;
+  }
+  .btn-primary { background: var(--ms-blue); color: #fff; }
+  .btn-primary:hover { background: var(--ms-blue-dark); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted);
+    margin-left: 12px;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+</style>
+
+<div class="post-hero">
+  <div class="container">
+    <a href="/blog/" class="post-back">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      All Articles
+    </a>
+    <div class="post-meta">
+      {% if page.category %}<span class="post-cat">{{ page.category }}</span>{% endif %}
+      <span class="post-date">{{ page.date | date: "%B %-d, %Y" }}</span>
+    </div>
+    <h1>{{ page.title }}</h1>
+    {% if page.excerpt %}<p class="lead">{{ page.excerpt | strip_html | truncate: 160 }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="post-body">
+  <a href="/blog/" class="post-back" style="display:none">← All Articles</a>
+  {{ content }}
+  <div class="post-footer-cta">
+    <h3>Found this useful?</h3>
+    <p>Connect with me on LinkedIn or explore more articles on Microsoft AI and Copilot.</p>
+    <a href="https://www.linkedin.com/in/abdulmanan" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+    <a href="/blog/" class="btn btn-outline">More Articles</a>
+  </div>
+</div>
